@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var moment = require('moment');
 
 /* GET home page. */
 module.exports = (db) => {
@@ -8,6 +9,9 @@ module.exports = (db) => {
     let sql = `SELECT * FROM bread`
     db.query(sql, (err, data) => {
       if (err) res.status(500).json(err)
+      for (let i = 0; i < data.rows.length; i++) {
+        data.rows[i].date = moment(data.rows[i].date).format('YYYY-MM-DD')
+      }
       res.json(data.rows)
     })
   });
