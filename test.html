@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Angular.js</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body>
+    <!-- <div ng-app="" ng-init="name = 'BAKTI'">
+        <p>Name: <input type="text" ng-model="name"> </p>
+        <h1 ng-bind="name"></h1>
+    </div> -->
+
+    <!-- <div ng-app="">
+        <p>My first expression: {{ 5 + 5 }}</p>
+    </div> -->
+
+    <!-- <div ng-app="">
+        <p>Name: <input type="text" ng-model="name"></p>
+        <p>{{name}}</p>
+    </div> -->
+
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+
+        First Name: <input type="text" ng-model="firstName"><br>
+        Last Name: <input type="text" ng-model="lastName"><br>
+        <br>
+        Full Name: {{firstName + " " + lastName}}
+
+    </div> -->
+
+    <!-- <form ng-app="" name="myForm">
+        Email:
+        <input type="email" name="myAddress" ng-model="text">
+        <span ng-show="myForm.myAddress.$error.email">Not a valid e-mail address</span>
+    </form>
+
+    <p>Enter your e-mail address in the input field. AngularJS will display an errormessage if the address is not an
+        e-mail.</p> -->
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <p>The url of this page is:</p>
+        <h3>{{myUrl}}</h3>
+    </div>
+
+    <p>This example uses the built-in $location service to get the absolute url of the page.</p>
+
+
+    <script>
+        // var app = angular.module('myApp', []);
+        // app.controller('myCtrl', function ($scope) {
+        //     $scope.firstName = "John";
+        //     $scope.lastName = "Doe";
+        // });
+
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function ($scope, $location) {
+            $scope.myUrl = $location.absUrl();
+        });
+    </script>
+
+</body>
+
+</html>
