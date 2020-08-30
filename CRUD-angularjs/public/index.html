@@ -15,124 +15,8 @@
 
 <body>
   <div class="container" style="margin-top: 30px">
-    <h1 style="font-size:50px;">BREAD (Browse,Read,Edit,Add,Delete)</h1>
-    <h3 style="font-size:30px;">Filters</h3>
-    <br>
-
-    <form action="/" method="GET" id="searchForm">
-      <input type="hidden" id="page" name="page" value="1">
-      <div class="row">
-        <div class="col">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="id" name="checkId">
-            <label class="form-check-label" for="id">
-              ID
-            </label>
-          </div>
-        </div>
-        <div class="col-10">
-          <div class="form-group">
-            <input type="text" class="form-control" id="id" placeholder="ID" name="id">
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="string" name="checkString">
-            <label class="form-check-label" for="string">
-              String
-            </label>
-          </div>
-        </div>
-        <div class="col-10">
-          <div class="form-group">
-            <input type="text" class="form-control" id="string" placeholder="String" name="string">
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="integer" name="checkInteger">
-            <label class="form-check-label" for="integer">
-              Integer
-            </label>
-          </div>
-        </div>
-        <div class="col-10">
-          <div class="form-group">
-            <input type="text" class="form-control" id="integer" placeholder="Integer" name="integer">
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="float" name="checkFloat">
-            <label class="form-check-label" for="float">
-              Float
-            </label>
-          </div>
-        </div>
-        <div class="col-10">
-          <div class="form-group">
-            <input type="text" class="form-control" id="float" placeholder="Float" name="float">
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-2">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="date" name="checkDate">
-            <label class="form-check-label" for="date">
-              Date
-            </label>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="form-group">
-            <input type="date" class="form-control" id="startDate" name="startDate">
-          </div>
-        </div>
-        <div class="w-100"></div>
-        <p class="col offset-2">to</p>
-        <div class="w-100"></div>
-        <div class="col-3 offset-2">
-          <div class="form-group">
-            <input type="date" class="form-control" id="endDate" name="endDate">
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="boolean" name="checkBoolean">
-            <label class="form-check-label" for="boolean">
-              Boolean
-            </label>
-          </div>
-        </div>
-        <div class="col-10">
-          <div class="form-group">
-            <select id="boolean" class="custom-select custom-select" name="boolean">
-              <option selected disabled>Choose the boolean ...</option>
-              <option value="true">true</option>
-              <option value="false">false</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary">Search</button>
-      <a href="/">
-        <button type="button" class="btn btn-secondary" id="reset">Reset</button>
-      </a>
-    </form>
+    <h1 style="font-size:50px;"><center> BREAD</center></h1>
+    <hr>
   </div>
 
   <div class="container" style="margin-top: 40px" ng-app="myApp" ng-controller="myCtrl">
@@ -163,12 +47,6 @@
         </tr>
       </tbody>
     </table>
-    <nav aria-label="Page navigation example mt-2">
-      <ul class="pagination">
-        <!-- di isi oleh jquery -->
-      </ul>
-    </nav>
-
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
       ADD
