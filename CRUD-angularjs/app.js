@@ -12,7 +12,7 @@ const pool = new Pool({
   port: 5432,
 })
 
-var breadRouter = require('./routes/bread');
+var breadRouter = require('./routes/bread')(pool);
 var usersRouter = require('./routes/users');
 
 var app = express();
