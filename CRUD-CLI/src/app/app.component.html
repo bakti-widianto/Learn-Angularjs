@@ -16,13 +16,28 @@
             <td class="text-center">{{user.firstName}}</td>
             <td class="text-center">{{user.lastName}}</td>
             <td class="text-center">
-              <button class="btn btn-info">Edit</button>
-              <button class="btn btn-warning">Delete</button>
+              <button class="btn btn-info" (click)="showEditForm()">Edit</button>
+              <button class="btn btn-warning" (click)="removeUser(user)">Delete</button>
             </td>
           </tr>
         </tbody>
       </table>
       <button class="btn btn-primary" (click)="showAddForm()">Add User</button>
+
+      <hr>
+      <form *ngIf="userForm">
+        <h2>Add New User</h2>
+        <p>First Name: <input type="text" name="firstName" [(ngModel)]="newUser.firstName" /></p>
+        <p>Last Name: <input type="text" name="lastName" [(ngModel)]="newUser.lastName" /></p>
+        <p>
+          <button type="button" class="btn btn-primary" (click)="saveUser(newUser)">Save</button>
+          <button type="button" class="btn btn-danger" (click)="cancelAdd()">Cancel</button>
+        </p>
+      </form>
+
+      <form *ngIf="editUserForm">
+        <h2>Edit User</h2>
+      </form>
 
     </div>
   </div>

@@ -7,24 +7,57 @@ import { UserService } from './services/user.service'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
-  users: User[]
+  users: User[];
+  userForm: boolean;
+  isNewUser: boolean;
+  newUser: any = {};
+  editUserForm: boolean;
 
-  constructor(private userService: UserService){ }
 
-  ngOnInit(){
+  constructor(private userService: UserService) { }
+
+  ngOnInit() {
     this.users = this.getUsers();
-    console.log(this.users)
+    // console.log(this.users)
   }
 
-  getUsers(): User[]{
+  getUsers(): User[] {
     return this.userService.getUsersFromData();
-
   }
 
-  showAddForm(){
-    console.log('form add')
+  showAddForm() {
+    if (this.users.length) {
+      this.newUser = {};
+      this.editUserForm = false;
+    }
+    this.userForm = true;
+    this.isNewUser = true;
+  }
+
+  saveUser(user: User) {
+    if (this.isNewUser) {
+      this.userService.addUser(user)
+    }
+    this.userForm = false;
+  }
+
+  cancelAdd() {
+    this.userForm = false
+  }
+
+  removeUser(user: User) {
+    confirm('Are You Sure Delete User?')
+    this.userService.deleteUser(user)
+  }
+
+  showEditForm(user:User){
+    if(!user){
+      this.userForm = false
+
+    }
+    this.editUserForm = true
   }
 
 }
