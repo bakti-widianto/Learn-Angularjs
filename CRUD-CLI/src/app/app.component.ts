@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   isNewUser: boolean;
   newUser: any = {};
   editUserForm: boolean;
+  editedUser: any = {};
 
 
   constructor(private userService: UserService) { }
@@ -48,16 +49,31 @@ export class AppComponent implements OnInit {
   }
 
   removeUser(user: User) {
-    confirm('Are You Sure Delete User?')
-    this.userService.deleteUser(user)
+    if (confirm('Are You Sure Delete User?')) {
+      this.userService.deleteUser(user)
+    }
   }
 
-  showEditForm(user:User){
-    if(!user){
+  showEditForm(user: User) {
+    if (!user) {
       this.userForm = false
-
+      return;
     }
+    this.userForm = false
     this.editUserForm = true
+    // console.log(user)
+    this.editedUser = user
+  }
+
+  cancelEdit() {
+    this.editedUser = {};
+    this.editUserForm = false;
+  }
+
+  updateUser() {
+    this.userService.updateUser(this.editedUser);
+    this.editUserForm = false;
+    this.editedUser = {};
   }
 
 }

@@ -16,7 +16,7 @@
             <td class="text-center">{{user.firstName}}</td>
             <td class="text-center">{{user.lastName}}</td>
             <td class="text-center">
-              <button class="btn btn-info" (click)="showEditForm()">Edit</button>
+              <button class="btn btn-info" (click)="showEditForm(user)">Edit</button>
               <button class="btn btn-warning" (click)="removeUser(user)">Delete</button>
             </td>
           </tr>
@@ -37,6 +37,12 @@
 
       <form *ngIf="editUserForm">
         <h2>Edit User</h2>
+        <p>First Name: <input type="text" name="firstName" [(ngModel)]="editedUser.firstName" /></p>
+        <p>Last Name: <input type="text" name="lastName" [(ngModel)]="editedUser.lastName" /></p>
+        <p>
+          <button type="button" class="btn btn-primary mr-2" (click)="updateUser()">Submit</button>
+          <button type="button" class="btn btn-warning" (click)="cancelEdit()">Cancel</button>
+        </p>
       </form>
 
     </div>
