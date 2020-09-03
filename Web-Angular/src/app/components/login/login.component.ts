@@ -6,13 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  enterValue = ''
   email = ''
   password = ''
-
-  onLoginPost() {
-    this.email = this.enterValue
-  }
-
 
 }
